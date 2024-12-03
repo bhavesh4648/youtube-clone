@@ -6,9 +6,12 @@ const mongoConnection = (async () => {
     const mongoConnection = await mongoose.connect(
       `${process.env.MONGO_URL}/${DB_NAME}`
     );
-    console.log("Mongodb Connected Successfully");
+    console.log(
+      "MongoDB Connected Successfully",
+      mongoConnection.connections.port
+    );
   } catch (error) {
-    console.log("MOngoDB error :", error);
+    console.log("MongoDB error :", error);
     process.exit(1);
   }
 })();
